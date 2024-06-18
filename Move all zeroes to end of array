@@ -1,0 +1,8 @@
+class Solution:
+    def pushZerosToEnd(self, arr, n):
+        next_non_zero = 0
+        
+        for i in range(n):
+            if arr[i] != 0:
+                arr[next_non_zero], arr[i] = arr[i], arr[next_non_zero]
+                next_non_zero += 1

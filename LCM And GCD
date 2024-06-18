@@ -1,0 +1,13 @@
+class Solution:
+    def lcmAndGcd(self, A , B):
+        # code here 
+        def gcd(A,B):
+            if B==0:
+                return A
+            return gcd(B,A%B)
+        def lcm(A,B):
+            return (A//gcd(A,B))*B
+        
+        a=gcd(A,B)
+        b=lcm(A,B)
+        return b,a

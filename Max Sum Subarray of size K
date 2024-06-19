@@ -1,0 +1,14 @@
+class Solution:
+    def maximumSumSubarray (self,K,Arr,N):
+        # code here 
+        sub=sum(Arr[:K])
+        res=0
+        res+=sub
+        left,right=0,K
+        while right<N:
+            sub-=Arr[left]
+            sub+=Arr[right]
+            res=max(res,sub)
+            left+=1
+            right+=1
+        return res

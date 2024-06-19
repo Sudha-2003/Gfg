@@ -1,0 +1,23 @@
+class Solution:
+
+	#Function to find out minimum steps Knight needs to reach target position.
+	def minStepToReachTarget(self, KnightPos, TargetPos, N):
+		#Code here
+		q=[[KnightPos[0],KnightPos[1],0]]
+		directions=[[-2,1],[-1,2],[1,2],[2,1],[2,-1],[ 1,-2],[-1,-2],[-2,-1]]
+		visited=set()
+		visited.add((KnightPos[0],KnightPos[1]))
+		while q:
+		    curr=q.pop(0)
+		    row,col,steps=curr[0],curr[1],curr[2]
+		    if row==TargetPos[0] and col==TargetPos[1]:
+		        return steps
+		    for direction in directions:
+		        newR=row+direction[0]
+		        newC=col+direction[1]
+		      
+		        if newR>0 and newC>0 and newR<=N and newC<=N and (newR,newC) not in visited:
+		            visited.add((newR,newC))
+		            q.append([newR,newC,steps+1])
+	    return -1
+		            

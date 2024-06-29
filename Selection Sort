@@ -1,0 +1,22 @@
+#User function Template for python3
+
+class Solution: 
+    def select(self, arr, i):
+        # code here 
+        large=i
+        for j in range(i):
+            if arr[j]>arr[large]:
+                large=j
+        return large
+    
+    def selectionSort(self, arr,n):
+        #code here
+        if n==1:
+            return
+        large=self.select(arr,n-1)
+        if large!=n-1:
+            temp=arr[large]
+            arr[large]=arr[n-1]
+            arr[n-1]=temp
+        self.selectionSort(arr,n-1)
+        

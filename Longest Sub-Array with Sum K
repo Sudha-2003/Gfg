@@ -1,0 +1,17 @@
+class Solution:
+    def lenOfLongSubarr (self, arr, n, k) : 
+        #Complete the function
+        maxlen=0
+        prefix={}
+        s=0
+        for i in range(n):
+            s+=arr[i]
+            if s==k:
+                maxlen=max(maxlen,i+1)
+            rem=s-k
+            if rem in prefix:
+                l=i-prefix[rem]
+                maxlen=max(maxlen,l)
+            if s not in prefix:
+                prefix[s]=i
+        return maxlen
